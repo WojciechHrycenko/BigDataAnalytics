@@ -8,13 +8,27 @@
 
 This project is a comprehensive Big Data analysis of US domestic flight trends, delays, and cancellations over a 5-year period (2019-2023). Developed for the **Big Data Analytics** course, the solution utilizes **Databricks** for ETL (Extract, Transform, Load) processes and **Power BI** for interactive data visualization and risk assessment.
 
-The goal was to provide actionable insights into airport performance, airline reliability, and to calculate flight risks for travelers based on historical data.
+**Business Goal:**
+The dashboard serves as a decision-support tool for **Airline Operations and Network Planning teams**. It replaces manual spreadsheet analysis with automated insights, enabling stakeholders to:
+* Identify high-risk routes and bottlenecks (e.g., specific airports or time slots).
+* Optimize flight schedules and buffer times based on historical delay probability.
+* Simulate "what-if" scenarios to improve service quality.
 
 ## Team Members
 
 * **Aleksandra Szpakowska**
 * **Cezary Kuźmowicz**
 * **Wojciech Hrycenko**
+
+---
+
+## Key Insights Derived
+
+Based on the analysis of the 2019-2023 dataset, several critical patterns were identified:
+
+* **Airport Bottlenecks:** **Denver International Airport (DEN)** consistently ranks as one of the most problematic hubs. The New York area airports also show significantly higher delay rates compared to the national average.
+* **Carrier Reliability:** Low-cost carriers (e.g., **JetBlue, Frontier, ExpressJet**) demonstrated the highest cancellation and delay rates. Larger legacy carriers generally maintained better stability.
+* **Distance Factor:** A "Medium-Haul Anomaly" was observed — flights in the medium distance range tend to face more delays than short-haul or long-haul flights.
 
 ---
 
@@ -31,7 +45,8 @@ The dataset used for this analysis is sourced from Kaggle:
 ### 1. Big Data Processing (Databricks)
 We utilized Databricks (PySpark/SQL) implementing a **Medallion Architecture** (Bronze, Silver, Gold layers) for structured data processing:
 
-* **Bronze Layer (Raw):** * Automated ingestion of data directly from Kaggle via the **Kaggle API**.
+* **Bronze Layer (Raw):**
+    * Automated ingestion of data directly from Kaggle via the **Kaggle API**.
     * Secure authentication using `kaggle.json` tokens.
     * Storage of raw CSV archives in the file system.
 * **Silver Layer (Cleaned):**
@@ -43,13 +58,13 @@ We utilized Databricks (PySpark/SQL) implementing a **Medallion Architecture** (
     * Route Risk Calculation: Utilizing Haversine formula for distance and historical delay probability.
 
 ### 2. Visualization & Intelligence (Power BI)
-The processed Gold data is consumed by Power BI to create an interactive dashboard.
+The processed Gold data is consumed by Power BI to create an interactive dashboard featuring the following insights:
 
 #### Dashboard Features
 * **Airport Performance Ranking:** Top 5 Worst/Best airports based on delay percentages.
 * **Geospatial Reliability Map:** Interactive map visualizing delay frequency across the USA.
 * **Route Analysis:** Analysis of specific connections (Origin -> Destination).
-* **Airline Leaderboard:** Comparative analysis of airline reliability.
+* **Airline Leaderboard:** Comparative analysis of airline reliability (Best vs. Worst performing carriers based on arrival delays).
 * **Flight Risk Assessment Model:** Logic-based model categorizing flights as Low, Medium, or High Risk based on historical patterns.
 
 ---
