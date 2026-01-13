@@ -43,23 +43,42 @@ We utilized Databricks (PySpark/SQL) implementing a **Medallion Architecture** (
     * Route Risk Calculation: Utilizing Haversine formula for distance and historical delay probability.
 
 ### 2. Visualization & Intelligence (Power BI)
-The processed Gold data is consumed by Power BI to create an interactive dashboard featuring the following insights:
+The processed Gold data is consumed by Power BI to create an interactive dashboard.
 
 #### Dashboard Features
-* **Airport Performance Ranking:**
-    * **Top 5 Worst Airports:** Ranking based on the highest percentage of problematic flights (delays > 15m + cancellations).
-    * **Top 5 Best Airports:** Ranking of the most reliable hubs.
-* **Geospatial Reliability Map:**
-    * Interactive map of the USA visualizing airport reliability (color-coded indicators based on geolocation data).
-* **Route Analysis:**
-    * Ranking of the Top 5 most frequently delayed specific connections (Origin -> Destination).
-* **Airline Leaderboard:**
-    * Comparative analysis of airline reliability (Best vs. Worst performing carriers based on arrival delays).
-* **Flight Risk Assessment Model:**
-    * A logic-based model that categorizes a specific flight choice into **Low**, **Medium**, or **High Risk**.
-    * *Logic:* Based on historical delay probability (e.g., >30% delay rate = High Risk).
+* **Airport Performance Ranking:** Top 5 Worst/Best airports based on delay percentages.
+* **Geospatial Reliability Map:** Interactive map visualizing delay frequency across the USA.
+* **Route Analysis:** Analysis of specific connections (Origin -> Destination).
+* **Airline Leaderboard:** Comparative analysis of airline reliability.
+* **Flight Risk Assessment Model:** Logic-based model categorizing flights as Low, Medium, or High Risk based on historical patterns.
 
-#### Interactive Filters
+---
+
+## Dashboard Gallery
+
+### 1. Project Info & Overview
+*General information about the project scope and metrics.*
+
+![Info Page](DashboardGallery/Info_Page.png)
+
+### 2. Airport Intelligence
+*Geospatial analysis and performance ranking of US airports.*
+
+![Airports Analysis](DashboardGallery/Airports_Page.png)
+
+### 3. Airline Leaderboard
+*Reliability comparison between major US carriers.*
+
+![Airline Analysis](DashboardGallery/Airlines_Page.png)
+
+### 4. Route & Risk Analysis
+*Detailed breakdown of specific flight routes and risk assessment.*
+
+![Routes Analysis](DashboardGallery/Routes_Page.png)
+
+---
+
+## Interactive Filters
 The dashboard allows users to drill down using:
 * **Airline Carrier**
 * **Origin & Destination**
